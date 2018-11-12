@@ -43,7 +43,7 @@ RUN chmod 755 /usr/local/bin/composer
 
 #swoole
 RUN mkdir -p /usr/local/swoole \
-&&	tar -xf swoole-src-4.2.7.tar.gz -C /usr/local/swoole \
+&&  tar -xf swoole-src-4.2.7.tar.gz -C /usr/local/swoole \
 &&  rm swoole-src-4.2.7.tar.gz \
 &&  docker-php-ext-configure /usr/local/swoole --enable-swoole \
 &&  docker-php-ext-install /usr/local/swoole \
