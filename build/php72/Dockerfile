@@ -41,6 +41,14 @@ RUN apt-get install -y libmcrypt-dev libmhash-dev \
 ADD composer.phar /usr/local/bin/composer
 RUN chmod 755 /usr/local/bin/composer
 
+#swoole
+RUN mkdir -p /usr/local/swoole \
+&&	tar -xf swoole-src-4.2.7.tar.gz -C /usr/local/swoole \
+&&  rm swoole-src-4.2.7.tar.gz \
+&&  docker-php-ext-configure /usr/local/swoole --enable-swoole \
+&&  docker-php-ext-install /usr/local/swoole \
+&&  rm -r /usr/local/swoole
+
 # Setup Composer Source
 RUN if [ $CHANGE_SOURCE = true ]; then \
 	composer config -g repo.packagist composer https://packagist.laravel-china.org \
