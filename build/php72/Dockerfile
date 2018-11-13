@@ -41,13 +41,14 @@ RUN apt-get install -y libmcrypt-dev libmhash-dev \
 ADD composer.phar /usr/local/bin/composer
 RUN chmod 755 /usr/local/bin/composer
 
+# nghttp2
+ADD https://github.com/nghttp2/nghttp2/releases/download/v1.34.0/nghttp2-1.34.0.tar.gz /usr/local/src
+RUN cd /usr/local/src && tar -zxf nghttp2-1* && cd nghttp2-1* && \
+	./configure && make && make install \
+
 #swoole
-RUN mkdir -p /usr/local/swoole \
-&&  tar -xf swoole-src-4.2.7.tar.gz -C /usr/local/swoole \
-&&  rm swoole-src-4.2.7.tar.gz \
-&&  docker-php-ext-configure /usr/local/swoole --enable-swoole \
-&&  docker-php-ext-install /usr/local/swoole \
-&&  rm -r /usr/local/swoole
+RUN apt-get libssl-dev build-essential zlibc minizip libidn11-dev libidn11 \
+	pecl install swoole && docker-php-ext-enable swoole
 
 # Setup Composer Source
 RUN if [ $CHANGE_SOURCE = true ]; then \
