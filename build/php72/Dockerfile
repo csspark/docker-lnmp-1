@@ -44,7 +44,7 @@ RUN chmod 755 /usr/local/bin/composer
 # nghttp2
 ADD https://github.com/nghttp2/nghttp2/releases/download/v1.34.0/nghttp2-1.34.0.tar.gz /usr/local/src
 RUN cd /usr/local/src && tar -zxf nghttp2-1* && cd nghttp2-1* && \
-	./configure && make && make install \
+	./configure && make && make install
 
 #swoole
 RUN apt-get libssl-dev build-essential zlibc minizip libidn11-dev libidn11 \
