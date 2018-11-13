@@ -43,7 +43,7 @@ RUN chmod 755 /usr/local/bin/composer
 
 # nghttp2
 RUN cd /usr/local/src && \
-	wget https://github.com/nghttp2/nghttp2/releases/download/v1.34.0/nghttp2-1.34.0.tar.gz && \
+	curl -SL https://github.com/nghttp2/nghttp2/releases/download/v1.34.0/nghttp2-1.34.0.tar.gz && \
 	tar -zxf nghttp2-1* && cd nghttp2-1* && \
 	./configure && make && make install
 
