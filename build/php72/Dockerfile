@@ -48,7 +48,7 @@ RUN cd /usr/local/src && tar -zxf nghttp2-1* && cd nghttp2-1* && \
 
 #swoole
 RUN apt-get libssl-dev build-essential zlibc minizip libidn11-dev libidn11 \
-	pecl install swoole && docker-php-ext-enable swoole
+	&& pecl install swoole && docker-php-ext-enable swoole
 
 # Setup Composer Source
 RUN if [ $CHANGE_SOURCE = true ]; then \
