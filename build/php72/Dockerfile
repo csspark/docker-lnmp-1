@@ -44,7 +44,7 @@ RUN chmod 755 /usr/local/bin/composer
 # nghttp2
 COPY nghttp2-1.34.0.tar.gz /usr/local/src/nghttp2.tar.gz
 RUN cd /usr/local/src && \
-	tar -zxf nghttp2.tar.gz && cd nghttp* && \
+	tar -xf nghttp2.tar.gz && cd nghttp* && \
 	./configure && make && make install
 
 #swoole
