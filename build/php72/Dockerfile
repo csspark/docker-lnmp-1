@@ -42,9 +42,9 @@ ADD composer.phar /usr/local/bin/composer
 RUN chmod 755 /usr/local/bin/composer
 
 # nghttp2
+COPY nghttp2-1.34.0.tar.gz /usr/local/src/nghttp2.tar.gz
 RUN cd /usr/local/src && \
-	curl -SL https://github.com/nghttp2/nghttp2/releases/download/v1.34.0/nghttp2-1.34.0.tar.gz && \
-	tar -zxf nghttp2-1* && cd nghttp2-1* && \
+	tar -zxf nghttp2.tar.gz && cd nghttp* && \
 	./configure && make && make install
 
 #swoole
