@@ -44,8 +44,8 @@ RUN chmod 755 /usr/local/bin/composer
 # nghttp2
 RUN echo "==> Downloading nghttp2..." \
 	&& mkdir -p /opt \
-	&& curl -sSL "https://github.com/nghttp2/nghttp2/releases/download/v1.34.0/nghttp2-1.34.0.tar.gz" | tar -xzf - -C /opt \
-	&& mv /opt/nghttp2-1.34.0 /opt/nghttp2 \
+	&& curl -sSL "https://github.com/nghttp2/nghttp2/releases/download/v1.40.0/nghttp2-1.40.0.tar.gz" | tar -xzf - -C /opt \
+	&& mv /opt/nghttp2-1.40.0 /opt/nghttp2 \
 	&& cd /opt/nghttp2 \
 	&& ./configure && make && make install
 
